@@ -12,7 +12,7 @@ author: Padmanaba Srinivasan
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  CV: "cv/CV.pdf"
+  CV: "/cv/CV.pdf"
   About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
