@@ -26,3 +26,11 @@ An overview of my work experience so far:
 - I worked in a Cybersecurity firm over summer in 2018. Here I worked on a number of projects, such as a secure communication application and aprorietary data viewer. I also picked up a bunch of key skills in penetration testing, reverse engineering and information extraction.
 
 - I then interned at Credit Suisse the following year where I worked on an AI assistant using Word2vec and Starpspace to perform NLP. 
+
+### Hobbies
+
+- Martial Arts (Karate, Wing Chun, Boxing)
+
+- Tennis
+
+- Bonsai
