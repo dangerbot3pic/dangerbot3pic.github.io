@@ -12,8 +12,10 @@ author: Padmanaba Srinivasan
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  CV: "/cv/CV.pdf"
+  CV/Resume: "/cv/CV.pdf"
   About Me: "aboutme"
+  #Bonsai Blog: "bonsaiblog"
+  Tech Blog: "techblog"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
