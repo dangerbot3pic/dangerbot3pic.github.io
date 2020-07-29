@@ -8,19 +8,19 @@ share-img: /assets/img/path.jpg
 tags: [tech, machine learning, quantitative finance]
 ---
 
-We have all heard of Warren Buffet. The **Oracle of Omaha**, as of 2019, has achieved an average annual return of 20.5%. This far beats the average inflation rate 9.95% per year since 1965. Compound interest means that $1 invested in 1965 is now worth over $23,000!
+We have all heard of Warren Buffet. The **Oracle of Omaha**, as of 2019, has achieved an average annual return of 20.5%. This far beats the average inflation rate of 9.95% per year since 1965. Compound interest means that $1 invested in 1965 is now worth over $23,000!
 
-This begs the question: how do we get in on that sweet, sweet return? This is what quantitative aims to do. In quantitative finance, we analyse large datasets to best predict how well an asset will perform in the future. Most obviously, this data includes past information on stick prices. Many interesting strategies often make use of other data, such as news and tweets to perform sentiment analysis and attempt understand how people perceive a stock. In this post we limit ourselves to past price data only and aim to gain an initial understanding of the task at hand.
+This begs the question: how do we get in on that sweet, sweet return? This is what quantitative aims to do. In quantitative finance, we analyse large datasets to best predict how well an asset will perform in the future. Most obviously, this data includes past information on stick prices. Many interesting strategies often make use of other data, such as news and tweets to perform sentiment analysis and attempt to understand how people perceive a stock. In this post we limit ourselves to past price data only and aim to gain an initial understanding of the task at hand.
 
 ### Obtaining Data
 
-All data science project rely on on thing -- acquisition of good data. Thankfully, historical ticker data is easily obtained from [Yahoo! Finance](https://uk.finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAIbB0AKO_tF2jF5VE9Z2EySf8LfQTP9IWgtDh_NGUpJ0rG1wfDAKmigwoPF4Bnkp1Go9tV2v__3-0Fr3GoGOX7S49x3iI48ii-Ztg4Q8udMSFhwo3kvvvEViGBCcmmXqx2MyIW6cDg0E1Xuvd7zIZqBJ9uJX4XE3POn6cywbAI0f) via the [pandas-datareader](https://pandas-datareader.readthedocs.io/en/latest/#) package. A few lines of code later we can obtain historical data for any publicly traded stock. 
+All data science project rely on one thing -- acquisition of good data. Thankfully, historical ticker data is easily obtained from [Yahoo! Finance](https://uk.finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAIbB0AKO_tF2jF5VE9Z2EySf8LfQTP9IWgtDh_NGUpJ0rG1wfDAKmigwoPF4Bnkp1Go9tV2v__3-0Fr3GoGOX7S49x3iI48ii-Ztg4Q8udMSFhwo3kvvvEViGBCcmmXqx2MyIW6cDg0E1Xuvd7zIZqBJ9uJX4XE3POn6cywbAI0f) via the [pandas-datareader](https://pandas-datareader.readthedocs.io/en/latest/#) package. A few lines of code later we can obtain historical data for any publicly traded stock. 
 
 ![Ford Historical Prices](/assets/blog/tech_blog/2020-07-09-tech-blog-A-Simple-Trading-Strategy/Ford_historical_prices_table.png)
 *Ford Historical Prices*
 {: .mx-auto.d-block :}
 
-We focues on the **Adj Close** price, which stands for Adjusted Close as this is the closing price per share after adjusting for a corporate action such as a stock split. 
+We focus on the **Adj Close** price, which stands for Adjusted Close as this is the closing price per share after adjusting for a corporate action such as a stock split. 
 
 ### Moving Average Trading
 
@@ -75,4 +75,4 @@ The next question is, just how successful are these strategies? We summarise our
 | Exponential Moving Average | -1019.94 | -34.67 | 20
 | Buy and Hold | NA | 3.77 | 1
 
-The results paint a grim picture. A Moving Median/Average strategy underperforms compared to a buy and hold strategy and suggests that a strategy that involves buying when a stock looks like it is about to move up and selling before it looks to be moving down significantly isn't protifable. Clearly more there is more to making money from the stock market. 
+The results paint a grim picture. A Moving Median/Average strategy underperforms compared to a buy and hold strategy and suggests that a strategy that involves buying when a stock looks like it is about to move up and selling before it looks to be moving down significantly isn't profitable. Clearly more there is more to making money from the stock market. 
