@@ -7,8 +7,30 @@
     
     <description>Computer Science PhD Student</description>
     
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Relative (Cross-Sectional) Momentum Trading Strategy</title>
+        <description>
+          Don't Stop Me Now - 
+          Another day, another post. This time it’s all about Momentum. Momentum is, as defined in the Oxford English Dictionary: The ability to keep increasing or developing A force that is gained by movement (specialist) The quantity of movement of a moving object, measured as its mass multiplied by its speed....
+        </description>
+        <pubDate>Tue, 01 Sep 2020 00:00:00 +0100</pubDate>
+        <link>/2020-09-01-tech-blog-Relative-Momentum-Trading-Strategy/</link>
+        <guid isPermaLink="true">/2020-09-01-tech-blog-Relative-Momentum-Trading-Strategy/</guid>
+      </item>
+    
+      <item>
+        <title>Starting out with Gaussian Processes</title>
+        <description>
+          A Gaussian Process Primer - 
+          After taking the course, Mathematics for Machine Learning (MML), at university and reading the excellent book of the same name, I was well and truly hooked on Gaussian Processes. The MML book introduces the idea of applying the full Bayesian treatment to Linear Regression, leading to the simple and beautiful...
+        </description>
+        <pubDate>Tue, 25 Aug 2020 00:00:00 +0100</pubDate>
+        <link>/2020-08-25-tech-blog-Starting-out-with-Gaussian-Processes/</link>
+        <guid isPermaLink="true">/2020-08-25-tech-blog-Starting-out-with-Gaussian-Processes/</guid>
+      </item>
     
       <item>
         <title>A Simple Trading Strategy</title>
@@ -17,8 +39,8 @@
           We have all heard of Warren Buffet. The Oracle of Omaha, as of 2019, has achieved an average annual return of 20.5%. This far beats the average inflation rate of 9.95% per year since 1965. Compound interest means that $1 invested in 1965 is now worth over $23,000! This begs...
         </description>
         <pubDate>Thu, 09 Jul 2020 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/2020-07-09-tech-blog-A-Simple-Trading-Strategy/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-07-09-tech-blog-A-Simple-Trading-Strategy/</guid>
+        <link>/2020-07-09-tech-blog-A-Simple-Trading-Strategy/</link>
+        <guid isPermaLink="true">/2020-07-09-tech-blog-A-Simple-Trading-Strategy/</guid>
       </item>
     
   </channel>
