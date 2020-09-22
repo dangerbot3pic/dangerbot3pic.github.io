@@ -5,7 +5,7 @@ subtitle: Setting the scene for Machine Learning in Quantitative Finance
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/path.jpg
 share-img: /assets/img/path.jpg
-tags: [tech, machine learning, quantitative finance]
+tags: [tech, machine learning, quantitative finance, trading strategies]
 ---
 
 We have all heard of Warren Buffet. The **Oracle of Omaha**, as of 2019, has achieved an average annual return of 20.5%. This far beats the average inflation rate of 9.95% per year since 1965. Compound interest means that $1 invested in 1965 is now worth over $23,000!

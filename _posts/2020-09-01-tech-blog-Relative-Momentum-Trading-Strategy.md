@@ -5,7 +5,7 @@ subtitle: Don't Stop Me Now
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/path.jpg
 share-img: /assets/img/path.jpg
-tags: [tech, quantitative finance]
+tags: [tech, quantitative finance, trading strategies]
 ---
 
 Another day, another post. This time it's all about Momentum. Momentum is, as defined in the [Oxford English Dictionary](https://www.oxfordlearnersdictionaries.com/definition/english/momentum?q=momentum):
