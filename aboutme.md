@@ -33,4 +33,6 @@ An overview of my work experience so far:
 
 - Tennis
 
-- Bonsai
+- History: Iron Age India, Late Hellenistic Period, Philip II and Alexander, Mongol Empire, Late Roman Republic. 
+
+- Some other stuff
