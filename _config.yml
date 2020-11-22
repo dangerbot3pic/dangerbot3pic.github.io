@@ -15,7 +15,7 @@ navbar-links:
   CV/Resume: "/cv/CV.pdf"
   About Me: "aboutme"
   #Bonsai Blog: "bonsaiblog"
-  Tech Blog: "techblog"
+  Blog: "techblog"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
