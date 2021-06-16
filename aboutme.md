@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hello
-subtitle: What can I do for you?
+subtitle: Still figuring stuff out
 ---
 
 I'm a PhD student in the Department of Computing at Imperial College London. My research interests range from machine learning to quantitative analysis and modelling. 
@@ -29,10 +29,10 @@ An overview of my work experience so far:
 
 ### Hobbies
 
-- Martial Arts (Karate, Wing Chun, Boxing)
+- Martial Arts (Karate, Wing Chun, Boxing,...)
 
 - Tennis
 
 - History: Iron Age India, Late Hellenistic Period, Philip II and Alexander, Mongol Empire, Late Roman Republic. 
 
-- Some other stuff
+- Recently, I have gained an interested in gardening, particularly, the art of Bonsai.
