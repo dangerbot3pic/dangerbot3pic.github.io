@@ -23,7 +23,6 @@
   
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172123502-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -33,7 +32,7 @@
   gtag('config', 'UA-172123502-1');
 </script>
 
--->
+
 
   
     
@@ -251,9 +250,9 @@
 
 <p>RGB video refers to video (sequences of RGB frames) captured via RGB cameras which aim to capture the colour information that a person would see. Cameras that capture in grayscale too exist, but are increasingly rare and grayscale video can often be obtained from RGB video by the colourspace conversion:</p>
 
-<script type="math/tex; mode=display">\begin{align}
+\[\begin{align}
  \text{Grayscale} = \frac{(R + G + B)}{3}
- \end{align}</script>
+ \end{align}\]
 
 <p>Note that other colour spaces exist, such as Hue Saturation Value (HSV) among others. These colour spaces are merely different ways of describing the colours in a frame and some are more suited to some tasks than others. HSV, for example, is preferred for colour based image segmentation.</p>
 
@@ -295,9 +294,9 @@
 
 <p><img src="/assets/blog/tech_blog/2021/2021-A-Summary-of-Action-Recognition-So-Far/simonyan_two_stream_net.png" alt="Two stream architecture for action recognition, Simonyan et al." class="mx-auto d-block" /> <em>Simonyan et al. two stream architecture. Source: <a href="https://arxiv.org/abs/1406.2199">Simonyan et al.</a></em></p>
 
-<p>This paper argues that the upper stream that takes in a single RGB (3 channel) frame of spatial resolution <script type="math/tex">w \times h</script> alone is sufficient to describe the context of the activity occurring and that all that is necessary for the lower stream is a description of motion for which the authors calculate motion descriptors for <script type="math/tex">L</script> consecutive frames, where the descriptor between each frame consists of two channels describing motion in the <script type="math/tex">x</script> and <script type="math/tex">y</script> directions: <script type="math/tex">d_t = \{d_t^x, d_t^y\}</script> where <script type="math/tex">d_t</script> is the descriptor between the raw frames at time <script type="math/tex">t</script> and <script type="math/tex">t+1</script>. This means <script type="math/tex">2L</script> frames are produced overall, which are stacked and passed to the lower stream which has the same spatial resolution as the static image stream of <script type="math/tex">w \times h</script> but now takes <script type="math/tex">2L</script> channels.</p>
+<p>This paper argues that the upper stream that takes in a single RGB (3 channel) frame of spatial resolution \(w \times h\) alone is sufficient to describe the context of the activity occurring and that all that is necessary for the lower stream is a description of motion for which the authors calculate motion descriptors for \(L\) consecutive frames, where the descriptor between each frame consists of two channels describing motion in the \(x\) and \(y\) directions: \(d_t = \{d_t^x, d_t^y\}\) where \(d_t\) is the descriptor between the raw frames at time \(t\) and \(t+1\). This means \(2L\) frames are produced overall, which are stacked and passed to the lower stream which has the same spatial resolution as the static image stream of \(w \times h\) but now takes \(2L\) channels.</p>
 
-<p>The authors experiment with different types of motion descriptor, experimenting with <a href="https://en.wikipedia.org/wiki/Optical_flow">dense optical flow</a>, <a href="https://ieeexplore.ieee.org/document/5995407">trajectories</a> and different schemas for applying these to include unidirectional flow (ie. flow in the temporal order of the frames) and bidirectional flow (consisting of computing <script type="math/tex">L/2</script> forward flows from a time <script type="math/tex">t</script> and <script type="math/tex">L/2</script> backward flows). The outputs of each stream of this network are fused using late fusion where class scores are averaged or an SVM is trained to further classify based on stream outputs.</p>
+<p>The authors experiment with different types of motion descriptor, experimenting with <a href="https://en.wikipedia.org/wiki/Optical_flow">dense optical flow</a>, <a href="https://ieeexplore.ieee.org/document/5995407">trajectories</a> and different schemas for applying these to include unidirectional flow (ie. flow in the temporal order of the frames) and bidirectional flow (consisting of computing \(L/2\) forward flows from a time \(t\) and \(L/2\) backward flows). The outputs of each stream of this network are fused using late fusion where class scores are averaged or an SVM is trained to further classify based on stream outputs.</p>
 
 <h4 id="karpathy-et-al">Karpathy et al.</h4>
 
@@ -321,7 +320,7 @@
   <li>Temporal fusion – to combine the outputs of both the streams, which may have spatial fusion already applied</li>
 </ol>
 
-<p>The authors use a base architecture similar to <a href="https://arxiv.org/abs/1406.2199">Simonyan et al.</a>, with <script type="math/tex">L=10</script> horizontal and vertical optical flow frames (making a total of <script type="math/tex">2L</script> frames) fed into the temporal stream and a standard RGB frame fed into the spatial stream. Each layer generates its own prediction which is then softmaxed and averaged to generate a combined prediction. Each stream is based on a ResNet architecture, pretrained on ImageNet.</p>
+<p>The authors use a base architecture similar to <a href="https://arxiv.org/abs/1406.2199">Simonyan et al.</a>, with \(L=10\) horizontal and vertical optical flow frames (making a total of \(2L\) frames) fed into the temporal stream and a standard RGB frame fed into the spatial stream. Each layer generates its own prediction which is then softmaxed and averaged to generate a combined prediction. Each stream is based on a ResNet architecture, pretrained on ImageNet.</p>
 
 <h4 id="spatial-fusion">Spatial fusion</h4>
 
@@ -335,7 +334,7 @@
 
 <h4 id="temporal-fusion">Temporal fusion</h4>
 
-<p>The standard two-stream network is fed information in a time period of <script type="math/tex">t\pm\frac{L}{2}</script> (which has total length <script type="math/tex">L</script>). However, many actions may in fact only make sense over a longer period of time. Of course, we may capture a larger frame window by, for example, considering every second frame. This, however, may well affect the computation of optical flow by violating the small motion assumption. An alternative is to consider un-strided frames over a time <script type="math/tex">t+T\tau</script> from which windows of length <script type="math/tex">L</script> are extracted and fed to the network. The feature maps generated by the inference of each window must then be fused temporally to generate a final prediction.</p>
+<p>The standard two-stream network is fed information in a time period of \(t\pm\frac{L}{2}\) (which has total length \(L\)). However, many actions may in fact only make sense over a longer period of time. Of course, we may capture a larger frame window by, for example, considering every second frame. This, however, may well affect the computation of optical flow by violating the small motion assumption. An alternative is to consider un-strided frames over a time \(t+T\tau\) from which windows of length \(L\) are extracted and fed to the network. The feature maps generated by the inference of each window must then be fused temporally to generate a final prediction.</p>
 
 <p>The authors propose two methods of temporal fusion:</p>
 <ol>
@@ -379,20 +378,19 @@
 
 <p>Donahue et al. consider several sub-tasks of activity recognition, image captioning and video description. For action recognition, they use an AlexNet-variant CNN along with a single layer LSTM and consider both RGB frames as well as optical flow frames as inputs. The CNN+LSTM architecture shows significant improvement over a standard single frame architecture, with optical flow-fed models outperforming RGB-fed networks. For the image captioning task, Donahue et al. also consider a two-layer LSTM and find little to no improvement in performance, concluding that additional LSTM layers do not benefit the image captioning task.</p>
 
-<p>In 2016, <a href="https://arxiv.org/abs/1511.04119">Sharma et al.</a> developed an extension to the standard CNN+LSTM model with the intuition that, when assessing a scene, humans focus on certain aspects of a scene at a time. This suggests that an attention mechanism may provide some benefit and so they introduce a soft attention mechanism into the model. At each time step, the CNN generates <script type="math/tex">D</script> feature map of dimension <script type="math/tex">K \times K</script> which are extracted as <script type="math/tex">K^2</script> <script type="math/tex">D</script>-dimensional vectors, each of which is passed to the LSTM layers. Each vector in the <script type="math/tex">D</script>-dimension represents different high levels features in a <script type="math/tex">K \times K</script> spatial region (this is not the input shape of the original image) and with attention, the aim is to calculate a softmax over the spatial region for each vector. Using <a href="https://arxiv.org/pdf/1409.0473.pdf">Bahdanau Attention</a>, the authors use the hidden state of the LSTM cell, <script type="math/tex">\boldsymbol{h}_t</script>, to compute the softmax over <script type="math/tex">K \times K</script> regions at time <script type="math/tex">t</script>:</p>
+<p>In 2016, <a href="https://arxiv.org/abs/1511.04119">Sharma et al.</a> developed an extension to the standard CNN+LSTM model with the intuition that, when assessing a scene, humans focus on certain aspects of a scene at a time. This suggests that an attention mechanism may provide some benefit and so they introduce a soft attention mechanism into the model. At each time step, the CNN generates \(D\) feature map of dimension \(K \times K\) which are extracted as \(K^2\) \(D\)-dimensional vectors, each of which is passed to the LSTM layers. Each vector in the \(D\)-dimension represents different high levels features in a \(K \times K\) spatial region (this is not the input shape of the original image) and with attention, the aim is to calculate a softmax over the spatial region for each vector. Using <a href="https://arxiv.org/pdf/1409.0473.pdf">Bahdanau Attention</a>, the authors use the hidden state of the LSTM cell, \(\boldsymbol{h}_t\), to compute the softmax over \(K \times K\) regions at time \(t\):</p>
 
-<script type="math/tex; mode=display">l_{t,i} = \frac{exp(W_i^T \boldsymbol{h}_t)}{\sum_{j=1}^{K \times K}{exp(W_j^T \boldsymbol{h}_t)}}</script>
+\[l_{t,i} = \frac{exp(W_i^T \boldsymbol{h}_t)}{\sum_{j=1}^{K \times K}{exp(W_j^T \boldsymbol{h}_t)}}\]
 
-<p>Which we interpret to be the importance (distribution) over the <script type="math/tex">K \times K</script> regions. The importance is then multiplied with the feature output of the CNN, <script type="math/tex">\boldsymbol{X}_t</script> to produce the attention weighted output <script type="math/tex">\boldsymbol{x}_t</script>:</p>
+<p>Which we interpret to be the importance (distribution) over the \(K \times K\) regions. The importance is then multiplied with the feature output of the CNN, \(\boldsymbol{X}_t\) to produce the attention weighted output \(\boldsymbol{x}_t\):</p>
 
-<script type="math/tex; mode=display">\boldsymbol{x}_t = \sum_{i=1}^{K \times K}{l_{t, i} \boldsymbol{X}_{t,i}}</script>
+\[\boldsymbol{x}_t = \sum_{i=1}^{K \times K}{l_{t, i} \boldsymbol{X}_{t,i}}\]
 
-<p><script type="math/tex">\boldsymbol{x}_t</script> is then passed on to the three-layer LSTM network.</p>
+<p>\(\boldsymbol{x}_t\) is then passed on to the three-layer LSTM network.</p>
 
 <p><strong><em>In the realm of action recognition in tennis, this style of model has been most prevalent. I first saw this kind of model used in a 2017 paper by <a href="https://ieeexplore.ieee.org/document/8014761">Mora et al.</a> where they use Inception as the CNN followed by a three-layer LSTM. The authors use the <a href="http://thetis.image.ece.ntua.gr">THETIS dataset</a> which contains labelled videos of people performing twelve tennis shots, albeit in a non-court environment. Vinyes et al. achieve impressive results across the classes, especially considering the similarity of some of the strokes (such as slice and topspin serves).</em></strong></p>
 
-<p><strong><em><a href="https://arxiv.org/abs/1808.00845">Cai et al.</a> build on this approach, using a variation of the standard LSTM (they call this variation a historical LSTM) that adds one state, the historical state <script type="math/tex">l_t</script> at time <script type="math/tex">t</script>, which is formulated based on relative values of the loss at hidden state, <script type="math/tex">\epsilon_{h_t}</script> and the loss at the historical state <script type="math/tex">\epsilon_{l_{t-1}}</script>. If <script type="math/tex">\epsilon_{h_t} > \epsilon_{l_{t-1}}</script>, then <script type="math/tex">l_t</script> is a combination of the previous historical state <script type="math/tex">l_{t-1}</script> and the current hidden state, <script type="math/tex">h_t</script>, weighted by a learnt parameter <script type="math/tex">\alpha_t</script>. Otherwise, if <script type="math/tex">% <![CDATA[
-\epsilon_{h_t} < \epsilon_{l_{t-1}} %]]></script>, then <script type="math/tex">l_t</script>, then <script type="math/tex">l_t</script> is a weighted average of all past hidden states. In the latter case, a parameter, <script type="math/tex">\tau</script>, controls the weight applied to the samples such that small <script type="math/tex">\tau</script> places an emphasis on more recent samples and vice-versa for large <script type="math/tex">\tau</script>. The authors evaluate their historical LSTM with different values of <script type="math/tex">\tau</script>, along with a standard LSTM and show the historical LSTM outperforming the standard LSTM. Performance is higher for smaller values of <script type="math/tex">\tau</script> suggesting that initialising <script type="math/tex">l_t</script> using more recent hidden states to update the historical state is beneficial(?).</em></strong></p>
+<p><strong><em><a href="https://arxiv.org/abs/1808.00845">Cai et al.</a> build on this approach, using a variation of the standard LSTM (they call this variation a historical LSTM) that adds one state, the historical state \(l_t\) at time \(t\), which is formulated based on relative values of the loss at hidden state, \(\epsilon_{h_t}\) and the loss at the historical state \(\epsilon_{l_{t-1}}\). If \(\epsilon_{h_t} &gt; \epsilon_{l_{t-1}}\), then \(l_t\) is a combination of the previous historical state \(l_{t-1}\) and the current hidden state, \(h_t\), weighted by a learnt parameter \(\alpha_t\). Otherwise, if \(\epsilon_{h_t} &lt; \epsilon_{l_{t-1}}\), then \(l_t\), then \(l_t\) is a weighted average of all past hidden states. In the latter case, a parameter, \(\tau\), controls the weight applied to the samples such that small \(\tau\) places an emphasis on more recent samples and vice-versa for large \(\tau\). The authors evaluate their historical LSTM with different values of \(\tau\), along with a standard LSTM and show the historical LSTM outperforming the standard LSTM. Performance is higher for smaller values of \(\tau\) suggesting that initialising \(l_t\) using more recent hidden states to update the historical state is beneficial(?).</em></strong></p>
 
 <p><strong><em><a href="http://cs230.stanford.edu/projects_winter_2020/reports/32209028.pdf">Buddhiraju et al.</a> perform classification on the same dataset using: 1. a variation of the CNN+LSTM model that replaced the LSTM with a bidirectional LSTM; and 2. an architecture found via architecture search using EvaNet, achieving near identical performance with both models on a reduced, six class problem.</em></strong></p>
 
@@ -402,15 +400,15 @@
 
 <h4 id="3d-convolutional-networks">3D convolutional networks</h4>
 
-<p>3D ConvNets see their origin in a 2012 paper called <a href="https://www.dbs.ifi.lmu.de/~yu_k/icml2010_3dcnn.pdf">3D Convolutional Neural Networks for Human Action Recognition</a>. 3D convolution is a straightforward extension of standard 2D convolution. In 2D convolution, the value at a position <script type="math/tex">x, y</script> in the <script type="math/tex">j</script>-th feature map in the <script type="math/tex">i</script>-th layer is given by <script type="math/tex">v^{x, y}_{i, j}</script>:</p>
+<p>3D ConvNets see their origin in a 2012 paper called <a href="https://www.dbs.ifi.lmu.de/~yu_k/icml2010_3dcnn.pdf">3D Convolutional Neural Networks for Human Action Recognition</a>. 3D convolution is a straightforward extension of standard 2D convolution. In 2D convolution, the value at a position \(x, y\) in the \(j\)-th feature map in the \(i\)-th layer is given by \(v^{x, y}_{i, j}\):</p>
 
-<script type="math/tex; mode=display">v^{x,y}_{i, j} = \sum_{p=0}^{P_i -1} \sum_{q=0}^{Q_i -1} w_{ij}^{pq} v_{(i-1)}^{(x+p)(y+q)}</script>
+\[v^{x,y}_{i, j} = \sum_{p=0}^{P_i -1} \sum_{q=0}^{Q_i -1} w_{ij}^{pq} v_{(i-1)}^{(x+p)(y+q)}\]
 
-<p>where <script type="math/tex">P_i, Q_i</script> are the convolution kernel height and width, respectively, and after which a bias and/or activation can be applied. 2D conv is just a weighted sum of a particular value and its immediate neighbours in the x-y plane. 3D conv takes this a step further adding another dimension in the z-plane. So, a value at the location <script type="math/tex">x, y, z</script> is now given by:</p>
+<p>where \(P_i, Q_i\) are the convolution kernel height and width, respectively, and after which a bias and/or activation can be applied. 2D conv is just a weighted sum of a particular value and its immediate neighbours in the x-y plane. 3D conv takes this a step further adding another dimension in the z-plane. So, a value at the location \(x, y, z\) is now given by:</p>
 
-<script type="math/tex; mode=display">v^{x,y,z}_{i, j} = \sum_{p=0}^{P_i -1} \sum_{q=0}^{Q_i -1} \sum_{r=0}^{R_i -1} w_{ij}^{pqr} v_{(i-1)}^{(x+p)(y+q)(z+r)}</script>
+\[v^{x,y,z}_{i, j} = \sum_{p=0}^{P_i -1} \sum_{q=0}^{Q_i -1} \sum_{r=0}^{R_i -1} w_{ij}^{pqr} v_{(i-1)}^{(x+p)(y+q)(z+r)}\]
 
-<p>With a convolution kernel of dimension <script type="math/tex">R_i</script> in the z-dimension.</p>
+<p>With a convolution kernel of dimension \(R_i\) in the z-dimension.</p>
 
 <p>The idea of 3D convolution is key as it allows direct learning of features from the time(z) dimension vie convolution which enforces locality and, with deeper layers, allows longer-range interactions. This idea has spawned many architectures such as <a href="https://arxiv.org/abs/1412.0767">C3D</a>, <a href="https://arxiv.org/abs/1412.0767">I3D</a> (which directly expands a 2D CNN, two-stream architecture into a two-stream 3D architecture) as well as more recent architectures such as (very interesting) <a href="https://arxiv.org/abs/1412.0767">SlowFast</a> and <a href="https://arxiv.org/abs/2004.04730">X3D</a>. 3D convolution architectures, unlike their CNN-LSTM counterparts, take as input a clip made of a fixed number of frames e.g. a 16 frame clip consists of 16 frames in order and convolution is performed directly on these.</p>
 
@@ -418,7 +416,7 @@
 
 <h3 id="just-for-fun-4d-convolution">Just for fun: 4D convolution</h3>
 
-<p>In 2020, <a href="https://arxiv.org/abs/2002.07442">Zhang et al.</a> published a paper that aims to overcome the limitations of 3D ConvNets – namely the limitation in the number of frames in a clip. The clip size is typically small, perhaps 16-32 frames, but, in the real world many videos can be much longer with Kinetics-400 videos typically 36-72 frames long. The authors of this paper propose splitting up a whole video into <em>action units</em>, <script type="math/tex">A_i</script>, which are short clips that represent a portion of an action. Multiple action units extracted in-order from a video make up a video input <script type="math/tex">V = {A_1, ..., A_U}</script> where <script type="math/tex">A_i \in C \times T \times H \times W</script> for <script type="math/tex">U</script> action units in a video. The authors intuit that rather than using longer clips with 3D convolution, where finding long-term (temporal) relationships would require deeper networks, using 4D convolutions <em>across clips</em> would better model long-term interactions.</p>
+<p>In 2020, <a href="https://arxiv.org/abs/2002.07442">Zhang et al.</a> published a paper that aims to overcome the limitations of 3D ConvNets – namely the limitation in the number of frames in a clip. The clip size is typically small, perhaps 16-32 frames, but, in the real world many videos can be much longer with Kinetics-400 videos typically 36-72 frames long. The authors of this paper propose splitting up a whole video into <em>action units</em>, \(A_i\), which are short clips that represent a portion of an action. Multiple action units extracted in-order from a video make up a video input \(V = {A_1, ..., A_U}\) where \(A_i \in C \times T \times H \times W\) for \(U\) action units in a video. The authors intuit that rather than using longer clips with 3D convolution, where finding long-term (temporal) relationships would require deeper networks, using 4D convolutions <em>across clips</em> would better model long-term interactions.</p>
 
 <p>Mathematically, 4D convolution is a straightforward extension of 3D convolution that adds another dimension of parameters to a weight matrix and requires one more sum over the fourth dimension.</p>
 
@@ -505,6 +503,10 @@
         </li>
         
         
+        <li class="page-item next">
+          <a class="page-link" href="/2023-12-15-tech-blog-An-Intro-to-Offline-Reinforcement-Learning/" data-toggle="tooltip" data-placement="top" title="An Intro to Offline Reinforcement Learning">Next Post &rarr;</a>
+        </li>
+        
       </ul>
               
   
@@ -564,7 +566,7 @@
         Padmanaba Srinivasan
         &nbsp;&bull;&nbsp;
       
-      2021
+      2024
 
       
 

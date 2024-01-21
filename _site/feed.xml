@@ -11,6 +11,17 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>An Intro to Offline Reinforcement Learning</title>
+        <description>
+          
+          What is Reinforcement Learning? Say you have bought a table from a certain Swedish retailer famous for both their fairly priced furnite, and meatballs, but have lost the instructions to assemble it. A trivial, albeit cumbersome approach would be to just try putting different parts together and to make it...
+        </description>
+        <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2023-12-15-tech-blog-An-Intro-to-Offline-Reinforcement-Learning/</link>
+        <guid isPermaLink="true">http://localhost:4000/2023-12-15-tech-blog-An-Intro-to-Offline-Reinforcement-Learning/</guid>
+      </item>
+    
+      <item>
         <title>A Summary of Action Recognition So Far</title>
         <description>
           

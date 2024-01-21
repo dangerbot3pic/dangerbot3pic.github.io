@@ -25,7 +25,6 @@
   
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<!--
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172123502-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -35,7 +34,7 @@
   gtag('config', 'UA-172123502-1');
 </script>
 
--->
+
 
   
     
@@ -258,21 +257,21 @@
 
 <p>We first look into a very simple model of trading that, intuitively, says buy when we think the stock price is going to increase and sell when we think it is going to decrease.</p>
 
-<p>This is achieved by finding a crossover point – a point at which we have an indication that a significant change in price is likely to occur. We make use of a <script type="math/tex">N</script> day <strong><em>Moving Average</em></strong> where each term is weighted equally, defined as:</p>
+<p>This is achieved by finding a crossover point – a point at which we have an indication that a significant change in price is likely to occur. We make use of a \(N\) day <strong><em>Moving Average</em></strong> where each term is weighted equally, defined as:</p>
 
-<script type="math/tex; mode=display">\begin{align}
+\[\begin{align}
         MA=\frac{1}{N}\sum_{n=1}^{n=N} x_n
-    \end{align}</script>
+    \end{align}\]
 
 <p>We also consider an <strong><em>Exponential Moving Average</em></strong> more recent terms are weighted more than older ones:</p>
 
-<script type="math/tex; mode=display">\begin{align}
+\[\begin{align}
         EMA= x_N + (1-\alpha) x_{N-1} + (1-\alpha)^2 x_{N-2} + ... + (1-\alpha)^N x_0
-    \end{align}</script>
+    \end{align}\]
 
-<p>where <script type="math/tex">\alpha</script> is a discounting term. A higher <script type="math/tex">\alpha</script> means older terms carry less weight and so the average relies more on recent values.</p>
+<p>where \(\alpha\) is a discounting term. A higher \(\alpha\) means older terms carry less weight and so the average relies more on recent values.</p>
 
-<p>A moving average can be calculated for <script type="math/tex">N</script> past periods. Plotted below are the moving averages for Ford Adjusted Close prices, plotted alongside the true price.</p>
+<p>A moving average can be calculated for \(N\) past periods. Plotted below are the moving averages for Ford Adjusted Close prices, plotted alongside the true price.</p>
 
 <p><img src="/assets/blog/tech_blog/2020-07-09-tech-blog-A-Simple-Trading-Strategy/MA_visualisation.png" alt="Ford Moving Average Price Visualisation" class="mx-auto d-block" />
 <em>Ford Moving Average Prices Visualisation</em></p>
@@ -461,7 +460,7 @@
         Padmanaba Srinivasan
         &nbsp;&bull;&nbsp;
       
-      2021
+      2024
 
       
 
