@@ -83,7 +83,7 @@ Finally, a dynamics that produces the action $$a = d(s, s')$$ that causes the st
 
 
 
-### 3. Enforece Q-Ensemble Independence
+### 3. Enforce Q-Ensemble Independence
 
 **[SPQR: Controlling Q-ensemble Independence with Spiked Random Model for Reinforcement Learning](https://arxiv.org/abs/2401.03137)**
 
