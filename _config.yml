@@ -13,7 +13,7 @@ author: Padmanaba Srinivasan
 
 navbar-links:
   CV/Resume: "/cv/CV.pdf"
-  About Me: "aboutme"
+  #About Me: "aboutme"
   #Bonsai Blog: "bonsaiblog"
   Blog: "techblog"
   Publications: "https://scholar.google.com/citations?user=_yyqhBEAAAAJ&hl=en"
