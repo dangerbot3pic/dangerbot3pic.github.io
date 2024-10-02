@@ -16,6 +16,7 @@ navbar-links:
   About Me: "aboutme"
   #Bonsai Blog: "bonsaiblog"
   Blog: "techblog"
+  Publications: "https://scholar.google.com/citations?user=_yyqhBEAAAAJ&hl=en"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
