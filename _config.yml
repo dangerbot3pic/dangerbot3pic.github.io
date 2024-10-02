@@ -12,7 +12,7 @@ author: Padmanaba Srinivasan
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  CV/Resume: "/cv/CV.pdf"
+  CV: "/cv/CV.pdf"
   #About Me: "aboutme"
   #Bonsai Blog: "bonsaiblog"
   Blog: "techblog"
